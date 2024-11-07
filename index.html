@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Admission Form</title>
+  <link rel="icon" href="images.jfif" type="image/x-icon"> <!-- Replace with your icon URL -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBlGs-EH9_fKXc1u5K2eYkLNllslHJZZxA",
+      authDomain: "admission-form-8d488.firebaseapp.com",
+      projectId: "admission-form-8d488",
+      storageBucket: "admission-form-8d488.firebasestorage.app",
+      messagingSenderId: "270677609065",
+      appId: "1:270677609065:web:1e685dcf5edce63e8470f8",
+      measurementId: "G-SE1XGXENLP"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <!-- Transparent Taskbar -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <img src="images.jfif" alt="School Logo" class="logo"> <!-- Replace with your logo URL -->
+    <h2>Online Admission Form</h2>
+    <form id="admissionForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="date" id="dob" required>
+      <input type="text" id="class" placeholder="Class" required>
+      <input type="text" id="address" placeholder="Address" required>
+      <input type="text" id="phone" placeholder="Phone Number" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <button type="submit">Submit</button>
+    </form>
+
+
+
+    <!-- Centered Download PDF Button -->
+    <button class="download-btn" onclick="downloadStudentDataPDF()">Download PDF of Students</button>
+  </div>
+
+  <!-- Footer Taskbar -->
+  <footer id="footerTaskbar">
+    <ul>
+      <li><a href="#privacy">Privacy Policy</a></li>
+      <li><a href="#terms">Terms of Service</a></li>
+      <li><a href="#contact">Contact Us 03183481051</a></li>
+    </ul>
+  </footer>
+
+  <!-- Success Popup -->
+  <div id="successPopup" class="popup">
+    <p>Student registered successfully!</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</body>
+</html>
